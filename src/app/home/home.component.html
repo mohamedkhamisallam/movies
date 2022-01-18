@@ -1,0 +1,105 @@
+
+
+<app-header [headerMovies]="trendingMovies"></app-header>
+
+
+<div class="container m-auto ">
+    <div class="row m-5 ">
+        <ul class="d-flex justify-content-around  p-5 rounded text-primary bg-secondary  ">
+            <li class="text-white" (click)="click($event)" >movie</li>
+            <li  class="text-white" (click)="click($event)">tv</li>
+            <li  class="text-white" (click)="click($event)">people</li>
+            <li  class="text-white" (click)="click($event)">all</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container py-2 ">
+    <div class="row justify-content-center aligin-items-center">
+
+        <div class="col-md-4 ">
+            <div class="bdr my-5 w-50"></div>
+            <h2 class="text-white" *ngIf="!x">Trending movie</h2>
+            <h2 class="text-white"*ngIf="x">Trending {{x}}</h2>
+            <p class="second-color"*ngIf="x"> Trending {{x}} </p>
+            <p class="second-color"*ngIf="!x"> Trending movie {{x}} </p>
+            <div class="bdr my-5 w-75"></div>
+           
+        </div>
+        <div *ngFor="let movie of trendingMovies" class="col-md-2  position-relative   ">
+            <div class="movie">
+
+                <a [routerLink]="['/details',movie.id]" target="_blank" >
+                    <img [src]="imgPrefix+movie.poster_path" alt="" class="w-100">
+          
+                    <h3 class="h6 text-center text-white" *ngIf="movie.title else add">{{movie.title}}</h3>
+                    <ng-template #add>
+                        <h2 class="h6 text-center text-white">no title</h2>
+                    </ng-template>
+                    <div class="vote position-absolute end-0 top-0">{{movie.vote_average}}</div>
+                </a>
+               
+         </div>
+        </div>
+
+
+
+
+
+
+        
+
+
+
+
+    </div>
+
+    <!-- <div class="row justify-content-center aligin-items-center">
+
+        <div class="col-md-4 ">
+            <div class="bdr my-5 w-50"></div>
+            <h2 class="text-white">Trending tv</h2>
+            <p class="second-color"> Trending tv </p>
+            <div class="bdr my-5 w-75"></div>
+           
+        </div>
+        <div *ngFor="let tv of trendingTv" class="col-md-2  position-relative   ">
+            <div class="movie">
+                <img [src]="imgPrefix+tv.poster_path" alt="" class="w-100">
+          
+            <h3 class="h6 text-center text-white" *ngIf="tv.name else add1">{{tv.name}}</h3>
+            <ng-template #add1>
+                <h2 class="h6 text-center text-white">no title</h2>
+            </ng-template>
+            <div class="vote position-absolute end-0 top-0">{{tv.vote_average}}</div>
+         </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center aligin-items-center">
+
+        <div class="col-md-4 ">
+            <div class="bdr my-5 w-50"></div>
+            <h2 class="text-white">Trending actors</h2>
+            <p class="second-color"> Trending actors </p>
+            <div class="bdr my-5 w-75"></div>
+           
+        </div>
+        <div *ngFor="let actor of trendingActors" class="col-md-2  position-relative   ">
+            <div class="movie">
+                <img [src]="imgPrefix+actor.poster_path" alt="" class="w-100">
+          
+            <h3 class="h6 text-center text-white" *ngIf="actor.title else add2">{{actor.title}}</h3>
+            <ng-template #add2>
+                <h2 class="h6 text-center text-white">no title</h2>
+            </ng-template>
+            <div class="vote position-absolute end-0 top-0">{{actor.vote_average}}</div>
+         </div>
+        </div>
+    </div> -->
+</div>
+
+
+
+

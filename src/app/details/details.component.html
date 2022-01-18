@@ -1,0 +1,18 @@
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img [src]="imgPrefix+moviedetails.poster_path"  class="w-100" alt="">
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-white ">{{moviedetails.title}}</h3>
+            <p class="text-white ">{{moviedetails.overview}}</p>
+            <p class="text-white">rate : <span class="text-white ">{{moviedetails.vote_average}}</span></p>
+            <p class="text-white">available languages :  
+                <span class="text-white " *ngFor="let lang of language">{{lang.english_name}} , </span></p>
+            <p class="text-white " *ngFor="let country of countries"> country : <span class="text-white ">{{country.name}} </span></p> 
+            
+        </div>
+    </div>
+</div>
